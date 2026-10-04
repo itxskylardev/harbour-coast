@@ -1,0 +1,2462 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    Harbour Coast Roleplay | Ticket #18
+</title>
+
+
+<style>
+
+/*
+=================================
+BASE
+=================================
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    color:
+        #dbe7f4;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(30, 100, 190, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(31, 73, 125, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(20, 92, 150, 0.12),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            160deg,
+            #06101c 0%,
+            #091827 50%,
+            #07111d 100%
+        );
+
+    background-attachment:
+        fixed;
+}
+
+
+/*
+=================================
+BACKGROUND WATERMARK
+=================================
+*/
+
+body::before {
+    content: "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        -2;
+
+    background-image:
+        url("https://cdn.discordapp.com/attachments/1533433669836996775/1555427577202479125/f04810d276771582a5c359ef7c64b2ff.png?backend=b2&amp;ex=6ac07c50&amp;is=6abf2ad0&amp;hm=b6700b9b0e84bc4a1f9c9130ef27dd8a8786f2600bd0266c9f4193417ced92ce");
+
+    background-repeat:
+        no-repeat;
+
+    background-position:
+        center center;
+
+    background-size:
+        min(620px, 70vw);
+
+    opacity:
+        0.035;
+
+    filter:
+        grayscale(100%);
+}
+
+
+/*
+=================================
+BACKGROUND MURAL
+=================================
+*/
+
+body::after {
+    content: "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        -1;
+
+    pointer-events:
+        none;
+
+    background:
+
+        linear-gradient(
+            115deg,
+            transparent 0%,
+            rgba(64, 147, 226, 0.03) 35%,
+            transparent 60%
+        ),
+
+        repeating-linear-gradient(
+            135deg,
+            rgba(255,255,255,0.008) 0px,
+            rgba(255,255,255,0.008) 1px,
+            transparent 1px,
+            transparent 14px
+        );
+}
+
+
+/*
+=================================
+PAGE
+=================================
+*/
+
+.page {
+    width:
+        min(1180px, calc(100% - 32px));
+
+    margin:
+        auto;
+
+    padding:
+        32px 0 60px;
+}
+
+
+/*
+=================================
+HERO
+=================================
+*/
+
+.hero {
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    min-height:
+        260px;
+
+    margin-bottom:
+        20px;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    border-radius:
+        24px;
+
+    background:
+        #091522;
+
+    box-shadow:
+        0 24px 70px rgba(0,0,0,0.35);
+}
+
+
+.hero-background {
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    opacity:
+        0.17;
+
+    filter:
+        saturate(70%);
+}
+
+
+.hero-shade {
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,14,25,0.97) 0%,
+            rgba(5,14,25,0.84) 45%,
+            rgba(5,14,25,0.42) 100%
+        );
+}
+
+
+.hero-content {
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    min-height:
+        260px;
+
+    padding:
+        38px;
+}
+
+
+.logo {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        82px;
+
+    height:
+        82px;
+
+    margin-right:
+        22px;
+
+    padding:
+        9px;
+
+    flex-shrink:
+        0;
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+.logo img {
+    max-width:
+        100%;
+
+    max-height:
+        100%;
+
+    object-fit:
+        contain;
+}
+
+
+.hero-eyebrow {
+    margin-bottom:
+        6px;
+
+    color:
+        #7eb8e8;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.hero h1 {
+    margin:
+        0;
+
+    color:
+        #ffffff;
+
+    font-size:
+        clamp(28px, 5vw, 42px);
+
+    letter-spacing:
+        -1px;
+}
+
+
+.hero-description {
+    max-width:
+        650px;
+
+    margin:
+        10px 0 0;
+
+    color:
+        #aebfd1;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.65;
+}
+
+
+/*
+=================================
+STATUS
+=================================
+*/
+
+.status-row {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+    margin-top:
+        18px;
+}
+
+
+.status-pill {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    color:
+        #c7d6e5;
+
+    font-size:
+        12px;
+}
+
+
+.status-dot {
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        #58d68d;
+
+    box-shadow:
+        0 0 10px rgba(88,214,141,0.7);
+}
+
+
+/*
+=================================
+INFO GRID
+=================================
+*/
+
+.info-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(210px, 1fr)
+        );
+
+    gap:
+        12px;
+
+    margin-bottom:
+        20px;
+}
+
+
+.info-card {
+    min-height:
+        96px;
+
+    padding:
+        17px 18px;
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+
+    border-radius:
+        16px;
+
+    background:
+        rgba(11, 27, 44, 0.78);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.16);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+.info-label {
+    margin-bottom:
+        9px;
+
+    color:
+        #7791aa;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.3px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.info-value {
+    color:
+        #f4f8fc;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.45;
+
+    overflow-wrap:
+        anywhere;
+}
+
+
+.info-card.featured {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15,55,91,0.88),
+            rgba(9,28,47,0.88)
+        );
+}
+
+
+/*
+=================================
+TRANSCRIPT
+=================================
+*/
+
+.transcript {
+    overflow:
+        hidden;
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+
+    border-radius:
+        22px;
+
+    background:
+        rgba(8, 20, 34, 0.84);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.24);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+.transcript-header {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    padding:
+        22px 24px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.07);
+
+    background:
+        rgba(255,255,255,0.018);
+}
+
+
+.transcript-header h2 {
+    margin:
+        0;
+
+    color:
+        #ffffff;
+
+    font-size:
+        17px;
+}
+
+
+.transcript-header span {
+    color:
+        #7690a8;
+
+    font-size:
+        12px;
+}
+
+
+.messages {
+    padding:
+        10px;
+}
+
+
+/*
+=================================
+MESSAGES
+=================================
+*/
+
+.message {
+    display:
+        flex;
+
+    gap:
+        14px;
+
+    padding:
+        13px 14px;
+
+    border-radius:
+        12px;
+
+    transition:
+        background 0.16s ease;
+}
+
+
+.message:hover {
+    background:
+        rgba(255,255,255,0.035);
+}
+
+
+.avatar {
+    width:
+        42px;
+
+    height:
+        42px;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        50%;
+
+    object-fit:
+        cover;
+
+    background:
+        #15273a;
+}
+
+
+.message-body {
+    flex:
+        1;
+
+    min-width:
+        0;
+}
+
+
+.message-header {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    margin-bottom:
+        5px;
+}
+
+
+.username {
+    color:
+        #f3f7fb;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+}
+
+
+.timestamp {
+    color:
+        #718397;
+
+    font-size:
+        11px;
+}
+
+
+.bot-badge {
+    padding:
+        2px 5px;
+
+    border-radius:
+        4px;
+
+    background:
+        #286ba2;
+
+    color:
+        white;
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+}
+
+
+.content {
+    color:
+        #cbd8e5;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.55;
+
+    overflow-wrap:
+        anywhere;
+}
+
+
+/*
+=================================
+ATTACHMENTS
+=================================
+*/
+
+.attachment {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    width:
+        fit-content;
+
+    max-width:
+        520px;
+
+    margin-top:
+        10px;
+
+    padding:
+        11px 13px;
+
+    border:
+        1px solid rgba(255,255,255,0.07);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(255,255,255,0.025);
+}
+
+
+.attachment a {
+    color:
+        #67b7f2;
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    text-decoration:
+        none;
+}
+
+
+.attachment a:hover {
+    text-decoration:
+        underline;
+}
+
+
+.attachment-subtitle {
+    margin-top:
+        2px;
+
+    color:
+        #718397;
+
+    font-size:
+        10px;
+}
+
+
+.file-icon {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    border-radius:
+        8px;
+
+    background:
+        rgba(68,148,211,0.12);
+
+    color:
+        #71b9ef;
+}
+
+
+.image-attachment {
+    display:
+        block;
+
+    max-width:
+        430px;
+
+    padding:
+        8px;
+}
+
+
+.attachment-image {
+    display:
+        block;
+
+    max-width:
+        100%;
+
+    max-height:
+        360px;
+
+    border-radius:
+        8px;
+
+    object-fit:
+        contain;
+}
+
+
+.attachment-name {
+    padding:
+        8px 4px 2px;
+
+    color:
+        #8095aa;
+
+    font-size:
+        11px;
+}
+
+
+/*
+=================================
+FOOTER
+=================================
+*/
+
+.footer {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    margin-top:
+        20px;
+
+    padding:
+        18px 5px;
+
+    color:
+        #61778c;
+
+    font-size:
+        11px;
+}
+
+
+.footer strong {
+    color:
+        #879db3;
+}
+
+
+/*
+=================================
+MOBILE
+=================================
+*/
+
+@media (
+    max-width: 650px
+) {
+
+    .page {
+        width:
+            min(100% - 20px, 1180px);
+
+        padding-top:
+            10px;
+    }
+
+
+    .hero {
+        border-radius:
+            18px;
+    }
+
+
+    .hero-content {
+        display:
+            block;
+
+        padding:
+            26px;
+
+        min-height:
+            290px;
+    }
+
+
+    .logo {
+        width:
+            66px;
+
+        height:
+            66px;
+
+        margin:
+            0 0 18px;
+    }
+
+
+    .hero h1 {
+        font-size:
+            28px;
+    }
+
+
+    .info-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .message {
+        gap:
+            10px;
+
+        padding:
+            12px 8px;
+    }
+
+
+    .avatar {
+        width:
+            36px;
+
+        height:
+            36px;
+    }
+
+
+    .footer {
+        display:
+            block;
+
+        text-align:
+            center;
+
+        line-height:
+            1.8;
+    }
+}
+
+
+@media (
+    max-width: 430px
+) {
+
+    .info-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <img
+            class="hero-background"
+            src="https://media.discordapp.net/attachments/1547158958643609652/1547180427008286790/Support.png?ex=6ac0ce0f&amp;is=6abf7c8f&amp;hm=4bf0ddec0b3432f9c0caaf209ff924ba53e8a28c3513b0a306df175395572fc3&amp;=&amp;format=webp&amp;quality=lossless&amp;width=640&amp;height=192"
+            alt=""
+        >
+
+        <div class="hero-shade"></div>
+
+
+        <div class="hero-content">
+
+            <div class="logo">
+
+                <img
+                    src="https://cdn.discordapp.com/attachments/1533433669836996775/1555427577202479125/f04810d276771582a5c359ef7c64b2ff.png?backend=b2&amp;ex=6ac07c50&amp;is=6abf2ad0&amp;hm=b6700b9b0e84bc4a1f9c9130ef27dd8a8786f2600bd0266c9f4193417ced92ce"
+                    alt="Harbour Coast Roleplay"
+                >
+
+            </div>
+
+
+            <div>
+
+                <div class="hero-eyebrow">
+                    Harbour Coast Roleplay
+                </div>
+
+
+                <h1>
+                    Ticket Transcript #18
+                </h1>
+
+
+                <p class="hero-description">
+                    Official archived support transcript generated by
+                    the Harbour Coast Roleplay Support System.
+                </p>
+
+
+                <div class="status-row">
+
+                    <div class="status-pill">
+
+                        <span class="status-dot"></span>
+
+                        Transcript Archived
+
+                    </div>
+
+
+                    <div class="status-pill">
+
+                        Directive
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- TRANSCRIPT INFORMATION -->
+
+    <section class="info-grid">
+
+
+        <div class="info-card featured">
+
+            <div class="info-label">
+                Ticket
+            </div>
+
+            <div class="info-value">
+                #18
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Opened By
+            </div>
+
+            <div class="info-value">
+                1490575887509229720
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Closed By
+            </div>
+
+            <div class="info-value">
+                1490575887509229720
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Final Team
+            </div>
+
+            <div class="info-value">
+                Directive
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Claimed By
+            </div>
+
+            <div class="info-value">
+                Unclaimed
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Status
+            </div>
+
+            <div class="info-value">
+                Closed
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Created
+            </div>
+
+            <div class="info-value">
+                04/10/2026, 1:28:12 pm
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Closed
+            </div>
+
+            <div class="info-value">
+                04/10/2026, 6:43:57 pm
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-label">
+                Transcript ID
+            </div>
+
+            <div class="info-value">
+                ticket-18-1791110636774-df28572dc9a6
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- CONVERSATION -->
+
+    <section class="transcript">
+
+
+        <div class="transcript-header">
+
+            <h2>
+                Conversation Log
+            </h2>
+
+            <span>
+                30 messages
+            </span>
+
+        </div>
+
+
+        <div class="messages">
+
+            
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1555438945956012112/6ffcb9ee2c025e3b7c670f4b0ace7241.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    Harbour Coast RP Support
+                                </span>
+
+                                
+                            <span class="bot-badge">
+                                BOT
+                            </span>
+                        
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:28:12 pm
+                                </span>
+
+                            </div>
+
+
+                            
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1555438945956012112/6ffcb9ee2c025e3b7c670f4b0ace7241.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    Harbour Coast RP Support
+                                </span>
+
+                                
+                            <span class="bot-badge">
+                                BOT
+                            </span>
+                        
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:28:13 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            &lt;@&amp;1533433665994883119&gt;
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:28:17 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            Hey there!
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1375629140341952552/06bfa00399f9bdd6436e08f122ffb048.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    _chxlie_
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:28:31 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            Howdy! How can I help?
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:29:46 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            I was wondering if you are interested in a website?
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:29:53 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            I am a website designer...
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/993708267123507210/de251eccdd65fb600a3f02ea97f02dc9.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    zorbloxxy1
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:31:24 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            We have one in the making, thank you though.
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:32:00 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            https://max-work.base44.app/
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1375629140341952552/06bfa00399f9bdd6436e08f122ffb048.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    _chxlie_
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:33:15 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            It’s my ticket money
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1375629140341952552/06bfa00399f9bdd6436e08f122ffb048.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    _chxlie_
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:33:18 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            buzz off
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:33:57 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            oh
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1555438945956012112/6ffcb9ee2c025e3b7c670f4b0ace7241.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    Harbour Coast RP Support
+                                </span>
+
+                                
+                            <span class="bot-badge">
+                                BOT
+                            </span>
+                        
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:34:49 pm
+                                </span>
+
+                            </div>
+
+
+                            
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/993708267123507210/de251eccdd65fb600a3f02ea97f02dc9.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    zorbloxxy1
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:34:58 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            Alright.
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/993708267123507210/de251eccdd65fb600a3f02ea97f02dc9.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    zorbloxxy1
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:35:35 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            As I said above, we do currently have one that is ready or almost ready for release.
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/993708267123507210/de251eccdd65fb600a3f02ea97f02dc9.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    zorbloxxy1
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 1:35:42 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            We do appreciate your offer though!
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:40:40 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            Ah ok, what about specific department websites
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:40:46 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            i made one for NSWPF, a full command portal
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:41:02 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            https://smrp-nswpf.base44.app/
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/993708267123507210/de251eccdd65fb600a3f02ea97f02dc9.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    zorbloxxy1
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:41:23 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            Nah, they don’t need one.
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:41:26 pm
+                                </span>
+
+                            </div>
+
+
+                            
+
+
+                            
+                                        <div class="attachment image-attachment">
+
+                                            <a
+                                                href="https://cdn.discordapp.com/attachments/1556176090882510868/1556254916430004279/Screenshot_2026-10-04_at_1.55.00_PM.png?backend=b2&amp;ex=6ac37ed5&amp;is=6ac22d55&amp;hm=a682d9ef6bfb9e34297fd6cbb2e4f643dee5d522ed77c746ed7a7faa5021cb72&amp;"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+
+                                                <img
+                                                    src="https://cdn.discordapp.com/attachments/1556176090882510868/1556254916430004279/Screenshot_2026-10-04_at_1.55.00_PM.png?backend=b2&amp;ex=6ac37ed5&amp;is=6ac22d55&amp;hm=a682d9ef6bfb9e34297fd6cbb2e4f643dee5d522ed77c746ed7a7faa5021cb72&amp;"
+                                                    alt="Screenshot_2026-10-04_at_1.55.00_PM.png"
+                                                    class="attachment-image"
+                                                >
+
+                                            </a>
+
+                                            <div class="attachment-name">
+                                                Screenshot_2026-10-04_at_1.55.00_PM.png
+                                            </div>
+
+                                        </div>
+                                    
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:41:27 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            okok
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/993708267123507210/de251eccdd65fb600a3f02ea97f02dc9.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    zorbloxxy1
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:41:36 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            Yeah, thank you though.
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:41:55 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            Do not respond to this if it is a no but i would be happy to do so for free?
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:42:01 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            just an option to keep in mind (:
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:42:07 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            thank you for your time!
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/993708267123507210/de251eccdd65fb600a3f02ea97f02dc9.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    zorbloxxy1
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:42:20 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            No worries, anything else?
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1490575887509229720/9bade4bf119b8a85497dc5854f18b53a.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    maxer910834
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:42:33 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            no.
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1555438945956012112/6ffcb9ee2c025e3b7c670f4b0ace7241.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    Harbour Coast RP Support
+                                </span>
+
+                                
+                            <span class="bot-badge">
+                                BOT
+                            </span>
+                        
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:43:12 pm
+                                </span>
+
+                            </div>
+
+
+                            
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/993708267123507210/de251eccdd65fb600a3f02ea97f02dc9.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    zorbloxxy1
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:43:19 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            .
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+                    <div class="message">
+
+                        <img
+                            class="avatar"
+                            src="https://cdn.discordapp.com/avatars/1267774353689542656/e0c9e549e71c667e54e34e9f535db24c.png?size=128"
+                            alt="Avatar"
+                        >
+
+                        <div class="message-body">
+
+                            <div class="message-header">
+
+                                <span class="username">
+                                    whois.aglow
+                                </span>
+
+                                
+
+                                <span class="timestamp">
+                                    04/10/2026, 6:43:42 pm
+                                </span>
+
+                            </div>
+
+
+                            
+                                        <div class="content">
+                                            -# &lt;@1490575887509229720&gt;
+                                        </div>
+                                    
+
+
+                            
+
+                        </div>
+
+                    </div>
+                
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div>
+            <strong>
+                Harbour Coast Roleplay
+            </strong>
+            • Support Archive
+        </div>
+
+
+        <div>
+            ticket-18-1791110636774-df28572dc9a6
+        </div>
+
+    </footer>
+
+
+</div>
+
+
+</body>
+
+</html>
